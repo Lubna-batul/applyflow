@@ -39,6 +39,7 @@ def update_job(
     job.location = job_data.location
     job.job_type = job_data.job_type
     job.description = job_data.description
+    job.source_url = str(job_data.source_url) if job_data.source_url else None
 
     try:
         db.commit()
@@ -79,7 +80,8 @@ def create_job(
         company=job_data.company,
         location=job_data.location,
         job_type=job_data.job_type,
-        description=job_data.description
+        description=job_data.description,
+        source_url=str(job_data.source_url) if job_data.source_url else None
     )
 
     try:

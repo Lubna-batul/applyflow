@@ -1,5 +1,5 @@
 ﻿from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl
 
 
 class JobCreate(BaseModel):
@@ -8,6 +8,7 @@ class JobCreate(BaseModel):
     location: str | None = Field(default=None, max_length=150)
     job_type: str | None = Field(default=None, max_length=50)
     description: str | None = Field(default=None, max_length=5000)
+    source_url: HttpUrl | None = Field(default=None, max_length=500)
 
 
 class JobResponse(BaseModel):
